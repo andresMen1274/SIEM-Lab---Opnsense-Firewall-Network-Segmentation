@@ -17,3 +17,9 @@ Select each individual subnetwork and select enable interface, set all of the ip
 
 <img width="718" height="317" alt="image" src="https://github.com/user-attachments/assets/58e6fb6d-6a25-4e86-b9cb-daa6fb5d4e9f" />
 
+We will add rules to all of the networks to simulate real network segmentation. select Firewall -> Rules -> Client, click add(+). 
+
+<img width="1230" height="927" alt="image" src="https://github.com/user-attachments/assets/7f590ba1-793d-4815-88f4-20c0653ab29b" />
+
+For the Client net the rules go as follows: Set Action: Pass, Interface: Client, Protocol: Any, Source: Client net, and Destination: any. Set Action: Pass, Interface: Client, Protocol: Any, Source: Client net, and Destination: Server net. For the DMZ net the rules go as folows: Action: Block, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Client net. Action: Block, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Server net. Action: Pass, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Any. Finally, the Server rules go as follows: Action: Pass, Interface: Server, Protocol: IPv4, Source: Server net, and Destination: Any. 
+
