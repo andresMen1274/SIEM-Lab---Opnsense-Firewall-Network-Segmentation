@@ -41,3 +41,43 @@ When finished it will prompt the user to enter in a password then select finish.
 
 <img width="1022" height="856" alt="image" src="https://github.com/user-attachments/assets/26dbd1e4-4c6b-44ef-9859-d0fc61c457bc" />
 
+Now we will configure the Wazuh server to allow the collection of logs. Go to the Ubuntu Server page and download this version.
+
+<img width="381" height="218" alt="image" src="https://github.com/user-attachments/assets/4a8293a1-b67e-467a-abbb-2b4c2503ed3b" />
+
+Create a new machine and use the now downloaded Ubuntu Server. Run through the configuration and complete the download. Once that is done the server should look like this.
+
+<img width="801" height="101" alt="image" src="https://github.com/user-attachments/assets/e8af808a-196d-4001-b0f2-a7dd6695b260" />
+
+Now we will install Wazuh. To do this login to the Ubuntu Server and enter these commands curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh and sudo bash wazuh-install.sh -a. 
+
+<img width="800" height="325" alt="image" src="https://github.com/user-attachments/assets/f7ca0213-35f1-4a95-a2ac-d93a0ff93f61" />
+
+Wait for the installation process to finish. Then login to the active directory server navigate to powershell to enter these commands. Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.5-1.msi -OutFile wazuh-agent.msi next msiexec /i wazuh-agent.msi WAZUH_MANAGER="10.200.20.10". To start the agent after installation use this command net start WazuhSvc. Login to Wazuh and check whether or not it is correctly configured.
+
+<img width="1017" height="842" alt="image" src="https://github.com/user-attachments/assets/fd056e3a-f318-4db9-aa8b-a7fe152ff89c" />
+
+We are going to finish setting up the active directory. Therefore, search server manager and select manage. Keep everything as is and select active directory domain services and select add feature. 
+
+<img width="788" height="562" alt="image" src="https://github.com/user-attachments/assets/8c235459-636c-4644-9920-cf40b0c27e21" />
+
+Once the installation has finished. Select promote this server to domain controller. 
+
+<img width="337" height="272" alt="image" src="https://github.com/user-attachments/assets/fd64f7a1-0383-4b33-b67e-2b3ae188f899" />
+
+Click add a new forest as well as name it lab.local. Select next for all options leading to the installation screen. Click install. When the instllation has finished the screen will display two users. Login to the main user that had a \ in the name. Once server manager opens select tools -> active directory users and computers. 
+
+<img width="752" height="527" alt="image" src="https://github.com/user-attachments/assets/0c5ffa08-928e-4434-aded-ed9d6daeb29f" />
+
+We are going to create a new organizational unit called SOC. This is done by right clicking the domain selecting new -> organizational unit. We will go to the newly created unit and select new -> user. Add a name as well as a new password to the user, select create.
+
+<img width="755" height="271" alt="image" src="https://github.com/user-attachments/assets/85f575f3-d1d6-4067-9481-534ad337383c" />
+
+Open the Windows 10 machine then type this PC and click properties. Scroll down to select advanced system settings.
+
+<img width="802" height="630" alt="image" src="https://github.com/user-attachments/assets/d0577ebc-7910-43ef-af1b-7d9e9833fb67" />
+
+Select domain and enter the name(lab.local). It will not work, to make it work go to ethernet -> properties -> IPv4 -> propeties. Enter the IP address of the domain controller into the DNS section. Once this is done repeat the previous step. You will get credentials that need to be entered. Enter administrator and the password that you created. 
+
+<img width="510" height="463" alt="image" src="https://github.com/user-attachments/assets/22e82ff9-551a-4f1f-9962-c3ecd41f8efd" />
+
