@@ -23,3 +23,21 @@ We will add rules to all of the networks to simulate real network segmentation. 
 
 For the Client net the rules go as follows: Set Action: Pass, Interface: Client, Protocol: Any, Source: Client net, and Destination: any. Set Action: Pass, Interface: Client, Protocol: Any, Source: Client net, and Destination: Server net. For the DMZ net the rules go as folows: Action: Block, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Client net. Action: Block, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Server net. Action: Pass, Interface: DMZ, Protocol: IPv4, Source: DMZ net, and Destination: Any. Finally, the Server rules go as follows: Action: Pass, Interface: Server, Protocol: IPv4, Source: Server net, and Destination: Any. 
 
+Now I will add the Winodws 10 virtual machine and the Windows Active Directory Server. Create a new virtual machine with the Windows 10 iso image. I gave my machine 4096 MB and 1 CPU ad secleted skip unintended install. 
+
+<img width="940" height="725" alt="image" src="https://github.com/user-attachments/assets/7138ce8e-26a2-476d-ad97-e912b06985a3" />
+
+Power up the virtual machine and start the configuration process until prompted to activate Windows. Select I dont have a product key -> Windows 10 Pro. Click custom install to install Windows 10 only. Allow that installation to finish.
+
+Now I will install the active directory server to do this download the Winodows 2022 server from the Windows website. Create a new machine and instert the iso image that was downloaded from the Windows website. Click skip unintended installation, next select finish to boot up the virtual machine.
+
+<img width="945" height="717" alt="image" src="https://github.com/user-attachments/assets/7cc49d30-288b-4f70-ba32-4c3cbe1e7fa0" />
+
+When the machine has started go through the configuration that is wanted then when prompted to ask for a version. Select the standard Evaluation Windows Server and select custom install. Wait for the installation to finish.
+
+<img width="1022" height="847" alt="image" src="https://github.com/user-attachments/assets/716fe61d-0cae-4b7c-93de-86c877cbc339" />
+
+When finished it will prompt the user to enter in a password then select finish. 
+
+<img width="1022" height="856" alt="image" src="https://github.com/user-attachments/assets/26dbd1e4-4c6b-44ef-9859-d0fc61c457bc" />
+
