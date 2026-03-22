@@ -81,3 +81,8 @@ Select domain and enter the name(lab.local). It will not work, to make it work g
 
 <img width="510" height="463" alt="image" src="https://github.com/user-attachments/assets/22e82ff9-551a-4f1f-9962-c3ecd41f8efd" />
 
+Install the Wazuh agent onto the Windows 10 machine as previously stated. After this is done open the Kali Linux VM and ping the IP address of the Windows 10 machine.
+
+<img width="647" height="106" alt="image" src="https://github.com/user-attachments/assets/521f7533-528c-4b6d-b3d5-65f8ee618a1a" />
+
+It will fail because of a rule that we previously configured to not allow the DMZ and Client networks to communicate with one another. To fix this navigate to the search bar and search the IP address of the firewall. Once this is done select Firewall -> Rules -> DMZ. Replace the old rule and allow traffic from the DMZ to the Client network. 
