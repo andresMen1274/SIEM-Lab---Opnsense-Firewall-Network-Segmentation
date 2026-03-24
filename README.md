@@ -1,7 +1,7 @@
 # SIEM-Lab---Opnsense-Firewall-Network-Segmentation
 In this project I will be updating my opnsense network to have network segmentation. This is the diagram of how the new network will look after the implementation of network segmentation. 
 
-<img width="782" height="520" alt="image" src="https://github.com/user-attachments/assets/bfcde3ab-07f2-48b6-b1c4-46e931a9ef91" />
+<img width="781" height="518" alt="image" src="https://github.com/user-attachments/assets/c546cc7e-301c-45fc-830a-f5c2356953d8" />
 
 The first thing that must be done is add new internal networks adapters to the firewall. This is done by navigating to the settings and enabling all four network adapters and naming them intnet-client, intnet-server, and intnet-DMZ. Each network will host different machines. As seen in the diagram the client side will hold a windows 10 virtual machine. The server side will hold the Wazuh server and the active directory server. Then the demilitarized zone will hold the kali linux virtual machine. 
 
